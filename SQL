@@ -1,0 +1,38 @@
+-- ADMIN TABLE
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- DEFAULT ADMIN ACCOUNT
+INSERT INTO admins (username, password)
+VALUES ('admin', SHA2('admin123', 256));
+
+-- PROJECTS TABLE
+CREATE TABLE projects (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE education (
+  id INT(11) AUTO_INCREMENT PRIMARY KEY,
+  school VARCHAR(255) NOT NULL,
+  degree VARCHAR(255) NOT NULL,
+  year_completed VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE skills (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    skill_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE about_me (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    intro_text TEXT NOT NULL,
+    quote TEXT,
+    strengths TEXT,
+    weakness TEXT,
+    bucket_list TEXT,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
